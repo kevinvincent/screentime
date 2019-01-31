@@ -169,7 +169,10 @@
       $.each(counter, function(key, val) {
         if (val > 0) {
           data[key] = val;
-          counter[key] = 0;
+          
+          if(!options.cumulative) {
+            counter[key] = 0;
+          }
 
           if (options.googleAnalytics) {
             sendGAEvent(key, val);
