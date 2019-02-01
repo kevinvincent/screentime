@@ -241,6 +241,15 @@
         stopTimers();
         startTimers();
       });
+      
+      $( window ).resize(function() {
+          $.each(options.fields, function(index, elem) {
+              if ($(elem.selector).length) {
+                  var field = new Field(elem);
+                  cache[field.name] = field;
+              }
+          });
+      });
 
     }
 
